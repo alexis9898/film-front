@@ -1,0 +1,22 @@
+<app-header (drawerEvent)="showSideNav()"></app-header>
+<div #drawer1>aaaa</div>
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer class="dr" #drawer mode="over">
+    <div class="">
+      <app-category></app-category>
+      <app-filter></app-filter>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<!-- <app-category></app-category> -->
+<!-- <app-films></app-films> -->
+
+<!-- <app-manager-film></app-manager-film> -->
+
+

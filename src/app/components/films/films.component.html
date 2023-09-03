@@ -1,0 +1,4 @@
+<div class="card-wrapper">
+  <app-film-card [film]="film" *ngFor="let film of films" [type]="'film'"></app-film-card>
+  <p *ngIf="!films || films.length == 0">No films found</p>
+</div>

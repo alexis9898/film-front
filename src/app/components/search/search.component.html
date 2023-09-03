@@ -1,0 +1,20 @@
+<div class="search-wrapper">
+  <mat-form-field class="search">
+    <mat-label>Clearable input</mat-label>
+    <input matInput type="text" [formControl]="search">
+    <button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search.setValue('')">
+      <mat-icon class="close">close</mat-icon>
+    </button>
+  </mat-form-field>
+  <div class="films-list" *ngIf="filmsSearch.length!=0">
+    <div *ngFor="let film of filmsSearch" class="film">
+      <a (click)="search.setValue('')" [routerLink]="['/film/',film.id]"  class="film-wrapper">
+        <img  src="/assets/films-images/{{film.imagesModel[0].path}}" alt="">
+        <span>{{film.name}}</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+

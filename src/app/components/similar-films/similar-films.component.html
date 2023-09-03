@@ -1,0 +1,11 @@
+<div class="similar-wrapper">
+  <div class="film-head" color="primary">
+    <div>Similar Films</div>
+  </div>
+  <div class="film-content" color="primary" >
+    <app-film-card  [film]="f" *ngFor="let f of similarFilms| slice:0:5 "></app-film-card>
+  </div>
+</div>
+
+
+

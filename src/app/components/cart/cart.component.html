@@ -1,0 +1,54 @@
+<div class="cart-wrapper">
+  <div class="cart-head" color="primary">
+    <div>Shopping Cart</div>
+    <button (click)="removeCart()">Clear Cart</button>
+  </div>
+  <div class="cart-content" color="primary">
+    <div class="cart-parameters">
+      <strong>Image</strong>
+      <strong>Title</strong>
+      <strong>Price</strong>
+      <strong>Quantity</strong>
+      <strong>Total</strong>
+      <strong class="delete">Delete</strong>
+    </div>
+    <div *ngIf="cart" class="shopping-list">
+      <div class="shopping-item" *ngFor="let item of cart">
+        <div>
+          <img
+            class="img"
+            src="/assets/films-images/{{ item.film.imagesModel[0].path }}"
+          />
+        </div>
+        <div>
+          <a (click)="goToFilm(item.film.id)"
+            ><span>{{ item.film.name }}</span></a
+          >
+        </div>
+        <div>
+          <span>${{ item.film.price }}</span>
+        </div>
+        <div>
+          <div class="quantity">
+            <button [disabled]="item.quantity<=1" [ngClass]="{'disabled':item.quantity==1}" (click)="remove1Q(item)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="add1q(item)">+</button>
+          </div>
+        </div>
+        <div>
+          <span>${{ totalPriceItem(item) }}</span>
+        </div>
+        <div>
+          <button (click)="removeItem(item)" class="trash">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="cart-content-end">
+      <span>Cart Total:</span>
+      <strong>${{ totalPrice() }}</strong>
+      <button>ChekOut</button>
+    </div>
+  </div>
+</div>

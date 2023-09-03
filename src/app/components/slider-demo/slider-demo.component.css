@@ -1,0 +1,22 @@
+
+.slider {
+  width: 90%;
+  /* transition: 1s linear; */
+}
+input{
+  cursor: grab;
+  width: 100%;
+}
+input:active{
+  cursor: grabbing;
+}
+
+input :active .mdc-slider__thumb-knob{
+}
+.mdc-slider__thumb-knob{
+  display:block;
+  background-color: aqua;
+
+}
+
+

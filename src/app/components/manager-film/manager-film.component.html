@@ -1,0 +1,103 @@
+<p>manager-film works!</p>
+
+<div class="container">
+
+  <div>{{editMode?'update':'add'}}</div>
+
+  <form [formGroup]="filmsForm" (submit)="onSubmit()">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" name="name" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>author</mat-label>
+      <input matInput formControlName="author" name="author" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>price</mat-label>
+      <input matInput formControlName="price" name="price" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>discription</mat-label>
+      <textarea class="discription" matInput placeholder="discription..." name="discription" formControlName="discription"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Imdb</mat-label>
+      <input  matInput name="discription" formControlName="imdb">
+    </mat-form-field>
+
+    <div formArrayName="categoryArray" class="category-list">
+      <div class="category" *ngFor="let category of  this.filmsForm.get('categoryArray')?.value; let i = index" [formGroupName]="i">
+        <div >name: {{category.name}}</div>
+        <button type="button" (click)="removeCategory(i)">
+          <mat-icon class="close">close</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="cat-add">
+      <mat-form-field>
+        <mat-label>Categories</mat-label>
+        <mat-select  name="categories">
+          <mat-option (click)="categoryChoice(category)" *ngFor="let category of categories" [value]="category.name">
+            {{category.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <button type="button" (click)="addCategoryToLIst()">Add</button> -->
+      <button type="button" (click)="addCategoryToLIst()" mat-fab matTooltip="Primary" color="primary">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+      <br>
+    </div>
+
+    <div *ngIf="film" class="img-server-wrapper">
+      <div class="img-server-title">My Images</div>
+      <div class="img-server">
+        <div class="image" *ngFor="let item of film.imagesModel; let i = index">
+          <button (click)="removImageFromServer(item,i)" type="button" >
+            <mat-icon class="close">close</mat-icon>
+          </button>
+          <img class="foto" [src]="item" />
+        </div>
+      </div>
+    </div>
+
+    <div class="img-add-wrapper">
+      <div class="upload-img">
+        <button type="button" (click)="file.click()" mat-fab matTooltip="Primary" color="primary">
+          <mat-icon>add_photo_alternate</mat-icon>
+        </button>
+        <!-- <button type="button" (click)="file.click()">upload Image </button> -->
+        <input
+        (change)="AddPhotos($event)"
+        style="display: none"
+        #file
+        id="image-file"
+        type="file"
+        name="mySingleImage"
+        value="chang"
+        accept="image/*"
+        multiple
+        />
+      </div>
+      <div class="image-wrapper">
+        <div class="image" *ngFor="let item of imagesForShow; let i = index">
+          <button (click)="removeImage(i)" type="button" >
+            <mat-icon class="close">close</mat-icon>
+          </button>
+          <img class="foto" [src]="item" />
+        </div>
+      </div>
+    </div>
+
+
+    <button type="submit" mat-raised-button>{{editMode?'update':'add'}}</button>
+  </form>
+</div>
+

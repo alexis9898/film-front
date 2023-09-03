@@ -1,0 +1,17 @@
+
+<!-- <label class="example-value-label">{{value}}</label> -->
+<mat-slider
+  class="slider"
+  [disabled]="disabled"
+  [max]="max"
+  [min]="min"
+  [step]="step"
+  [discrete]="thumbLabel"
+  (change)="formatLabel(value)"
+  [showTickMarks]="showTicks">
+  <input  matSliderThumb [(ngModel)]="value" >
+</mat-slider>
+
+
+
+

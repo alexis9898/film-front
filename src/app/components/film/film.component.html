@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="film-wrapper">
+    <div class="film-head" color="primary">
+      <div>Book Dtailes</div>
+    </div>
+    <div *ngIf="film" class="film-content">
+      <img src="/assets/films-images/{{film.imagesModel[0].path}}" >
+      <div class="film-info">
+        <div>
+          <span>
+            <strong>Title</strong>
+          </span>
+          <span>{{film.name}}</span>
+        </div>
+        <div>
+          <span>
+            <strong>Author</strong>
+          </span>
+          <span>{{film.author}}</span>
+        </div>
+        <div>
+          <span>
+            <strong>Category</strong>
+          </span>
+          <span>
+            <div class="categories" *ngFor="let cat of film.categoriesModel;let i=index"><div>{{cat.name}}</div><div *ngIf="i!=film.categoriesModel.length-1">/</div> </div>
+          </span>
+        </div>
+        <div>
+          <span>
+            <strong>Price</strong>
+          </span>
+          <span>{{film.price}}</span>
+        </div>
+        <app-add-to-cart-button [film]="film"></app-add-to-cart-button>
+      </div>
+    </div>
+  </div>
+
+  <app-similar-films></app-similar-films>
+</div>
+
+

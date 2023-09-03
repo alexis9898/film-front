@@ -1,0 +1,21 @@
+<div class="filter-wrapper">
+  <div class="filter-head" color="primary">
+    <div>Filter</div>
+  </div>
+  <div class="filter-content">
+    <!-- <div *ngFor="let item of sorts">{{item}}</div> -->
+    <label *ngIf="price" class="example-value-label">{{price}}</label>
+    <app-slider-demo (customEvent)="changePrice($event)"></app-slider-demo>
+
+    <mat-form-field>
+      <mat-label>SortBy</mat-label>
+        <mat-select [(ngModel)]="sort" name="">
+          <mat-option (click)="sorting(sort)" [value]="sort" *ngFor="let sort of sorts">{{sort}}</mat-option>
+       </mat-select>
+    </mat-form-field>
+
+  </div>
+</div>
+
+
+

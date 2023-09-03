@@ -1,0 +1,33 @@
+
+    <mat-toolbar color="primary" class="nav-wrapper">
+      <button
+      mat-icon-button
+      class="menu"
+      aria-label=""
+      (click)="drawer()"
+      >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span style="cursor: pointer;" [routerLink]="['/app']" >My App</span>
+
+    <span class="example-spacer"></span>
+    <div class="search">
+      <app-search></app-search>
+    </div>
+    <span class="example-spacer"></span>
+    <a [routerLink]="['cart']" mat-icon-button class="cart" aria-label="">
+      <mat-icon>shopping_cart</mat-icon>
+      <span >{{cart.length}}</span>
+    </a>
+    <button
+    mat-icon-button
+    class=""
+    aria-label=""
+    >
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button (click)="loginOut()" mat-button  >
+    {{!user?'Login':'Out'}}
+  </button>
+</mat-toolbar>
+

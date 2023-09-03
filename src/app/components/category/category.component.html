@@ -1,0 +1,18 @@
+
+<div class="container">
+  <mat-list role="list" class="cat-nav">
+    <div class="cat-item">
+      <button [routerLink]="['/app']" mat-button [ngClass]="{'active':selectedAllCategory}">
+        <span>all categorie</span>
+      </button>
+    </div>
+    <div class="cat-item" role="listitem" *ngFor="let cat of categories">
+      <button  [ngClass]="{'active':selectCategoryId==cat.id}"  [routerLink]="['/app/',cat.id]" mat-button>
+        <span>{{cat.name}}</span>
+      </button>
+    </div>
+  </mat-list>
+</div>
+
+
+

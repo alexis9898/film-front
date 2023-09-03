@@ -1,0 +1,38 @@
+a{
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a strong:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.card{
+  width: 200px;
+  box-shadow:  0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  transition: 0.3s;
+  /* font-size: 14px; */
+}
+.card:hover{
+ box-shadow:  0 5px 5px -3px #777, 0 8px 10px 1px #777,0 3px 14px 2px #777;
+}
+.card img{
+  cursor: pointer;
+  height: 250px;
+}
+.card-content{
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  padding-bottom: 8px;
+}
+.mdc-card__actions{
+  justify-content:space-evenly;
+}
+
+
+
+
